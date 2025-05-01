@@ -1,8 +1,22 @@
+import { useEffect, useState } from "react";
 import CountriesData from "../countriesData";
 import CountryCard from "./CountryCard";
 
 export default function CountryList({ query, filter }) {
-  let countriesList = CountriesData;
+  const [countriesData, setCountriesData] = useState([]);
+  let countriesList = countriesData;
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    fetch("https://restcountries.com/v3.1/all")
+      .then((res) => res.json())
+      .then((data) => {
+        setCountriesData(data);
+      });
+  }
 
   if (query.length > 0) {
     countriesList = countriesList.filter((country) =>

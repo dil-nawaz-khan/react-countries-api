@@ -155,3 +155,16 @@ a {
     flex-direction: column;
   }
 }
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error-container h2,
+.error-container h4 {
+  margin: 0;
+}

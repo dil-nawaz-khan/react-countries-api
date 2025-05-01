@@ -1,10 +1,8 @@
 import Header from "./components/Header";
-import Searchbar from "./components/Searchbar";
-import SelectMenu from "./components/SelectMenu";
 
-import "./app.css";
-import CountryList from "./components/CountryList";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import "./app.css";
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -13,13 +11,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <main>
-        <div className="search-filter-container">
-          <Searchbar query={query} setQuery={setQuery} />
-          <SelectMenu filter={filter} setFilter={setFilter} />
-        </div>
-        <CountryList query={query} filter={filter} />
-      </main>
+      <Outlet />
     </>
   );
 }
