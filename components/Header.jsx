@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <header className="header-container">
       <div className="header-content">
         <h2 className="title">
-          <a href="/">Where in the world?</a>
+          <Link to="/">Where in the world?</Link>
         </h2>
         <p className="theme-changer">
           <i className="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode

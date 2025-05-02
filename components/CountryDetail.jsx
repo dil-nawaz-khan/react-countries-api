@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 import "./CountryDetail.css";
-import { useParams } from "react-router-dom";
+import CountryDetailShimmer from "./CountryDetailShimmer";
 
 export default function CountryDetail() {
   // const countryName = new URLSearchParams(location.search).get("name");
@@ -12,7 +13,7 @@ export default function CountryDetail() {
 
   useEffect(() => {
     fetchCountryDetails();
-  }, []);
+  }, [countryName]);
 
   function fetchCountryDetails() {
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
@@ -31,17 +32,33 @@ export default function CountryDetail() {
             .join(", "),
           language: Object.values(data.languages).join(", "),
           flag: data.flags.svg,
+          borders: [],
         });
-        console.log(data);
+
+        if (data.borders) {
+          Promise.all(
+            data.borders.map((border) => {
+              return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+                .then((res) => res.json())
+                .then(([data]) => data.name.common);
+            })
+          ).then((borders) => {
+            setCountryData((prev) => ({
+              ...prev,
+              borders,
+            }));
+          });
+        }
       })
       .catch((error) => {
+        console.log(error);
         setNotFound(true);
       });
   }
 
   if (notFound) return <div>Country not found</div>;
 
-  if (!countryData) return <h3>Loading...</h3>;
+  if (!countryData) return <CountryDetailShimmer />;
 
   return (
     <main>
@@ -87,9 +104,16 @@ export default function CountryDetail() {
                 <span className="languages">{countryData?.language}</span>
               </p>
             </div>
-            <div className="border-countries">
-              <b>Border Countries: </b>&nbsp;
-            </div>
+            {countryData?.borders.length !== 0 && (
+              <div className="border-countries">
+                <b>Border Countries: </b>&nbsp;
+                {countryData?.borders.map((border) => (
+                  <Link to={`/${border}`} key={border}>
+                    {border}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

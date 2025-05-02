@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CountriesData from "../countriesData";
 import CountryCard from "./CountryCard";
+import CountryListShimmer from "./CountryListShimmer";
 
 export default function CountryList({ query, filter }) {
   const [countriesData, setCountriesData] = useState([]);
@@ -29,6 +30,8 @@ export default function CountryList({ query, filter }) {
       country.region.toLowerCase().includes(filter.toLowerCase())
     );
   }
+
+  if (!countriesList.length) return <CountryListShimmer />;
 
   return (
     <div className="countries-container">

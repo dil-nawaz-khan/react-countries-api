@@ -1,0 +1,30 @@
+.shimmer-detail-card {
+  /* padding-inline: 30px; */
+}
+
+.back-button-shimmer {
+  background-color: #ccc;
+  width: 100px;
+  height: 30px;
+}
+
+.img-shimmer {
+  width: 30%;
+  min-height: 250px;
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.details-text-container-shimmer {
+  width: 500px;
+  height: 30px;
+  background-color: #ccc;
+  margin-bottom: 10px;
+}
+
+.line-shimmer {
+  width: 180px;
+  height: 35px;
+  background-color: #ccc;
+  border-radius: 4px;
+}
