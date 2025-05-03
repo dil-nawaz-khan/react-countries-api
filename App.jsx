@@ -5,13 +5,13 @@ import { Outlet } from "react-router-dom";
 import "./app.css";
 
 export default function App() {
-  const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState("");
+  const storedPreference = JSON.parse(localStorage.getItem("isDarkMode"));
+  const [isDark, setIsDark] = useState(!!storedPreference ?? false);
 
   return (
     <>
-      <Header />
-      <Outlet />
+      <Header theme={[isDark, setIsDark]} />
+      <Outlet context={[isDark, setIsDark]} />
     </>
   );
 }

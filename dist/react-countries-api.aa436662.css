@@ -6,19 +6,23 @@ body {
   --background-color: white;
   --text-color: black;
   --elements-color: white;
-  background-color: var(--background-color);
-  color: var(--text-color);
   margin: 0;
   font-family: Nunito, sans-serif;
 }
 
-body.dark {
+main, header {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+main.dark, header.dark {
   --background-color: #202c37;
   --text-color: white;
   --elements-color: #2b3945;
 }
 
 main {
+  height: calc(100vh-73px);
   padding: 24px;
 }
 
@@ -29,7 +33,10 @@ a {
 
 .header-container {
   background-color: var(--elements-color);
+  z-index: 1;
   padding-inline: 24px;
+  position: sticky;
+  top: 0;
   box-shadow: 0 2px 4px #0000001a;
 }
 

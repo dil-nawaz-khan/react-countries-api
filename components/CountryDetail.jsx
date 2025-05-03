@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useOutletContext,
+  useParams,
+} from "react-router-dom";
 
 import "./CountryDetail.css";
 import CountryDetailShimmer from "./CountryDetailShimmer";
@@ -8,47 +13,25 @@ export default function CountryDetail() {
   // const countryName = new URLSearchParams(location.search).get("name");
   const params = useParams();
   const countryName = params.country;
+  const location = useLocation();
+  const state = location.state;
+  const [isDark] = useOutletContext();
   const [countryData, setCountryData] = useState();
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    fetchCountryDetails();
+    if (state) {
+      updateCountryData(state);
+    } else {
+      fetchCountryDetails();
+    }
   }, [countryName]);
 
   function fetchCountryDetails() {
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       .then((res) => res.json())
       .then(([data]) => {
-        setCountryData({
-          name: data.name.common,
-          nativeName: Object.values(data.name.nativeName)[0].common,
-          population: data.population.toLocaleString("en-IN"),
-          region: data.region,
-          subregion: data.subregion,
-          capital: data.capital.join(", "),
-          tld: data.tld.join(", "),
-          currency: Object.values(data.currencies)
-            .map((currency) => currency.name)
-            .join(", "),
-          language: Object.values(data.languages).join(", "),
-          flag: data.flags.svg,
-          borders: [],
-        });
-
-        if (data.borders) {
-          Promise.all(
-            data.borders.map((border) => {
-              return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
-                .then((res) => res.json())
-                .then(([data]) => data.name.common);
-            })
-          ).then((borders) => {
-            setCountryData((prev) => ({
-              ...prev,
-              borders,
-            }));
-          });
-        }
+        updateCountryData(data);
       })
       .catch((error) => {
         console.log(error);
@@ -56,12 +39,45 @@ export default function CountryDetail() {
       });
   }
 
+  function updateCountryData(data) {
+    setCountryData({
+      name: data.name.common,
+      nativeName: Object.values(data.name.nativeName)[0].common,
+      population: data.population.toLocaleString("en-IN"),
+      region: data.region,
+      subregion: data.subregion,
+      capital: data.capital.join(", "),
+      tld: data.tld.join(", "),
+      currency: Object.values(data.currencies)
+        .map((currency) => currency.name)
+        .join(", "),
+      language: Object.values(data.languages).join(", "),
+      flag: data.flags.svg,
+      borders: [],
+    });
+
+    if (data.borders) {
+      Promise.all(
+        data.borders.map((border) => {
+          return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+            .then((res) => res.json())
+            .then(([data]) => data.name.common);
+        })
+      ).then((borders) => {
+        setCountryData((prev) => ({
+          ...prev,
+          borders,
+        }));
+      });
+    }
+  }
+
   if (notFound) return <div>Country not found</div>;
 
   if (!countryData) return <CountryDetailShimmer />;
 
   return (
-    <main>
+    <main className={isDark ? "dark" : ""}>
       <div className="country-details-container">
         <span className="back-button" onClick={() => history.back()}>
           <i className="fa-solid fa-arrow-left"></i>&nbsp; Back
