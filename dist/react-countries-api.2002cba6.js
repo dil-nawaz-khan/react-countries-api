@@ -23467,11 +23467,6 @@ var _s = $RefreshSig$();
 function Header() {
     _s();
     const { isDark, setIsDark } = (0, _useTheme.useTheme)();
-    // if (isDark) {
-    //   document.body.classList.add("dark");
-    // } else {
-    //   document.body.classList.remove("dark");
-    // }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
         className: `header-container ${isDark ? "dark" : ""}`,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -23484,12 +23479,12 @@ function Header() {
                         children: "Where in the world?"
                     }, void 0, false, {
                         fileName: "components/Header.jsx",
-                        lineNumber: 18,
+                        lineNumber: 12,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "components/Header.jsx",
-                    lineNumber: 17,
+                    lineNumber: 11,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23503,7 +23498,7 @@ function Header() {
                             className: `fa-solid fa-${isDark ? "sun" : "moon"}`
                         }, void 0, false, {
                             fileName: "components/Header.jsx",
-                            lineNumber: 27,
+                            lineNumber: 21,
                             columnNumber: 11
                         }, this),
                         "\xa0\xa0",
@@ -23512,18 +23507,18 @@ function Header() {
                     ]
                 }, void 0, true, {
                     fileName: "components/Header.jsx",
-                    lineNumber: 20,
+                    lineNumber: 14,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "components/Header.jsx",
-            lineNumber: 16,
+            lineNumber: 10,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "components/Header.jsx",
-        lineNumber: 15,
+        lineNumber: 9,
         columnNumber: 5
     }, this);
 }
