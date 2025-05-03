@@ -1,13 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import {
-  Link,
-  useLocation,
-  useOutletContext,
-  useParams,
-} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
+
+import CountryDetailShimmer from "./CountryDetailShimmer";
+import { useTheme } from "../hooks/useTheme";
 
 import "./CountryDetail.css";
-import CountryDetailShimmer from "./CountryDetailShimmer";
 
 export default function CountryDetail() {
   // const countryName = new URLSearchParams(location.search).get("name");
@@ -15,7 +12,7 @@ export default function CountryDetail() {
   const countryName = params.country;
   const location = useLocation();
   const state = location.state;
-  const [isDark] = useOutletContext();
+  const { isDark } = useTheme();
   const [countryData, setCountryData] = useState();
   const [notFound, setNotFound] = useState(false);
 

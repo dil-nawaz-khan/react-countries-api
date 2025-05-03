@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function Header({ theme }) {
-  const [isDark, setIsDark] = theme;
+import { useTheme } from "../hooks/useTheme";
+
+export default function Header() {
+  const { isDark, setIsDark } = useTheme();
 
   // if (isDark) {
   //   document.body.classList.add("dark");

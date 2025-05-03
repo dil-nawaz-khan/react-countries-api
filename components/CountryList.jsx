@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CountriesData from "../countriesData";
 import CountryCard from "./CountryCard";
 import CountryListShimmer from "./CountryListShimmer";
 
@@ -35,7 +34,7 @@ export default function CountryList({ query, filter }) {
 
   return (
     <div className="countries-container">
-      {countriesList.map((country, index) => (
+      {countriesList.map((country) => (
         <CountryCard
           key={country.name.common}
           name={country.name.common}
