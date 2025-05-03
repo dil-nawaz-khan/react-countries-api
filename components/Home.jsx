@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import { useTheme } from "../hooks/useTheme";
+import { useFilter, useTheme } from "../hooks";
 import Searchbar from "./Searchbar";
 import SelectMenu from "./SelectMenu";
 import CountryList from "./CountryList";
 
 export default function Home() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useFilter();
   const [filter, setFilter] = useState("");
   const { isDark } = useTheme();
 

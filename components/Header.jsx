@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "../hooks";
 
 export default function Header() {
   const { isDark, setIsDark } = useTheme();

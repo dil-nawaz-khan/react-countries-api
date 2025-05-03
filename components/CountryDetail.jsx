@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 
 import CountryDetailShimmer from "./CountryDetailShimmer";
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "../hooks";
 
 import "./CountryDetail.css";
 

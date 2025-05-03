@@ -20,7 +20,7 @@ export default function CountryList({ query, filter }) {
 
   if (query.length > 0) {
     countriesList = countriesList.filter((country) =>
-      country.name.common.toLowerCase().includes(query.toLowerCase())
+      country.name.common.toLowerCase().includes(query)
     );
   }
 

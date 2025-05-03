@@ -23462,11 +23462,11 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>Header);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
-var _useTheme = require("../hooks/useTheme");
+var _hooks = require("../hooks");
 var _s = $RefreshSig$();
 function Header() {
     _s();
-    const { isDark, setIsDark } = (0, _useTheme.useTheme)();
+    const { isDark, setIsDark } = (0, _hooks.useTheme)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
         className: `header-container ${isDark ? "dark" : ""}`,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -23524,7 +23524,7 @@ function Header() {
 }
 _s(Header, "0QEO8EhH1pCCcp3D5ILRY/GYypA=", false, function() {
     return [
-        (0, _useTheme.useTheme)
+        (0, _hooks.useTheme)
     ];
 });
 _c = Header;
@@ -23536,7 +23536,7 @@ $RefreshReg$(_c, "Header");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","../hooks/useTheme":"6MXfj"}],"7h6Pi":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","../hooks":"cmvoo"}],"7h6Pi":[function(require,module,exports,__globalThis) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -25814,7 +25814,56 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6MXfj":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cmvoo":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _useWindowDimensions = require("./useWindowDimensions");
+parcelHelpers.exportAll(_useWindowDimensions, exports);
+var _useTheme = require("./useTheme");
+parcelHelpers.exportAll(_useTheme, exports);
+var _useFilter = require("./useFilter");
+parcelHelpers.exportAll(_useFilter, exports);
+
+},{"./useWindowDimensions":"3WXqO","./useTheme":"6MXfj","./useFilter":"Eo8mE","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3WXqO":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$689f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$689f.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$689f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useWindowDimensions", ()=>useWindowDimensions);
+var _react = require("react");
+var _s = $RefreshSig$();
+function useWindowDimensions() {
+    _s();
+    const [windowSize, setWindowSize] = (0, _react.useState)({
+        width: window.innerWidth,
+        height: window.innerHeight
+    });
+    (0, _react.useEffect)(()=>{
+        window.addEventListener("resize", function(e) {
+            setWindowSize({
+                width: this.window.innerWidth,
+                height: this.window.innerHeight
+            });
+        });
+    }, []);
+    return {
+        width: windowSize.width,
+        height: windowSize.height
+    };
+}
+_s(useWindowDimensions, "Qzj2RskDuUQJ+boeJ9kz4svfpFU=");
+
+  $parcel$ReactRefreshHelpers$689f.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"6MXfj":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$e370 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$e370.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -25885,7 +25934,36 @@ $RefreshReg$(_c, "ThemeProvider");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"a1db5a08ca9a495a":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react/jsx-dev-runtime":"dVPUn"}],"4slL4":[function() {},{}],"5EsMc":[function(require,module,exports,__globalThis) {
+},{"a1db5a08ca9a495a":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react/jsx-dev-runtime":"dVPUn"}],"Eo8mE":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$e6c0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$e6c0.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e6c0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useFilter", ()=>useFilter);
+var _react = require("react");
+var _s = $RefreshSig$();
+function useFilter() {
+    _s();
+    // const [filteredData, setQuery] = useFilter(data, ()=>'')
+    const [query, setQuery] = (0, _react.useState)("");
+    return [
+        query,
+        setQuery
+    ];
+}
+_s(useFilter, "HYX2QbDDdTtlu7GfoQbAPZOIM6k=");
+
+  $parcel$ReactRefreshHelpers$e6c0.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"4slL4":[function() {},{}],"5EsMc":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$8c1a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$8c1a.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -25938,7 +26016,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>Home);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _useTheme = require("../hooks/useTheme");
+var _hooks = require("../hooks");
 var _searchbar = require("./Searchbar");
 var _searchbarDefault = parcelHelpers.interopDefault(_searchbar);
 var _selectMenu = require("./SelectMenu");
@@ -25948,9 +26026,9 @@ var _countryListDefault = parcelHelpers.interopDefault(_countryList);
 var _s = $RefreshSig$();
 function Home() {
     _s();
-    const [query, setQuery] = (0, _react.useState)("");
+    const [query, setQuery] = (0, _hooks.useFilter)();
     const [filter, setFilter] = (0, _react.useState)("");
-    const { isDark } = (0, _useTheme.useTheme)();
+    const { isDark } = (0, _hooks.useTheme)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
         className: isDark ? "dark" : "",
         children: [
@@ -25994,9 +26072,10 @@ function Home() {
         columnNumber: 5
     }, this);
 }
-_s(Home, "fuzbtt012elSK0+EYWH0+d2kzjE=", false, function() {
+_s(Home, "hUy8odchV/gkYqP7VfrjJRwjMmU=", false, function() {
     return [
-        (0, _useTheme.useTheme)
+        (0, _hooks.useFilter),
+        (0, _hooks.useTheme)
     ];
 });
 _c = Home;
@@ -26008,7 +26087,7 @@ $RefreshReg$(_c, "Home");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./Searchbar":"8gRhC","./SelectMenu":"dihlm","./CountryList":"bzXaO","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../hooks/useTheme":"6MXfj"}],"8gRhC":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./Searchbar":"8gRhC","./SelectMenu":"dihlm","./CountryList":"bzXaO","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../hooks":"cmvoo"}],"8gRhC":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$528b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$528b.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -26035,7 +26114,7 @@ function Searchbar({ query, setQuery }) {
                 type: "text",
                 placeholder: "Search for a country...",
                 value: query,
-                onChange: (e)=>setQuery(e.target.value)
+                onChange: (e)=>setQuery(e.target.value.toLocaleLowerCase())
             }, void 0, false, {
                 fileName: "components/Searchbar.jsx",
                 lineNumber: 5,
@@ -26177,7 +26256,7 @@ function CountryList({ query, filter }) {
             setCountriesData(data);
         });
     }
-    if (query.length > 0) countriesList = countriesList.filter((country)=>country.name.common.toLowerCase().includes(query.toLowerCase()));
+    if (query.length > 0) countriesList = countriesList.filter((country)=>country.name.common.toLowerCase().includes(query));
     if (filter.toLowerCase() !== "clear" && filter.length > 0) countriesList = countriesList.filter((country)=>country.region.toLowerCase().includes(filter.toLowerCase()));
     if (!countriesList.length) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _countryListShimmerDefault.default), {}, void 0, false, {
         fileName: "components/CountryList.jsx",
@@ -26439,7 +26518,7 @@ var _react = require("react");
 var _reactRouterDom = require("react-router-dom");
 var _countryDetailShimmer = require("./CountryDetailShimmer");
 var _countryDetailShimmerDefault = parcelHelpers.interopDefault(_countryDetailShimmer);
-var _useTheme = require("../hooks/useTheme");
+var _hooks = require("../hooks");
 var _countryDetailCss = require("./CountryDetail.css");
 var _s = $RefreshSig$();
 function CountryDetail() {
@@ -26449,7 +26528,7 @@ function CountryDetail() {
     const countryName = params.country;
     const location = (0, _reactRouterDom.useLocation)();
     const state = location.state;
-    const { isDark } = (0, _useTheme.useTheme)();
+    const { isDark } = (0, _hooks.useTheme)();
     const [countryData, setCountryData] = (0, _react.useState)();
     const [notFound, setNotFound] = (0, _react.useState)(false);
     (0, _react.useEffect)(()=>{
@@ -26791,7 +26870,7 @@ _s(CountryDetail, "1rTL+JI1OJOxxGjsaujcTMNbyfA=", false, function() {
     return [
         (0, _reactRouterDom.useParams),
         (0, _reactRouterDom.useLocation),
-        (0, _useTheme.useTheme)
+        (0, _hooks.useTheme)
     ];
 });
 _c = CountryDetail;
@@ -26803,7 +26882,7 @@ $RefreshReg$(_c, "CountryDetail");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./CountryDetail.css":"jpfWC","react-router-dom":"61z4w","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./CountryDetailShimmer":"jtiyc","../hooks/useTheme":"6MXfj"}],"jpfWC":[function() {},{}],"jtiyc":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./CountryDetail.css":"jpfWC","react-router-dom":"61z4w","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./CountryDetailShimmer":"jtiyc","../hooks":"cmvoo"}],"jpfWC":[function() {},{}],"jtiyc":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$fbf4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$fbf4.init();
 var prevRefreshReg = globalThis.$RefreshReg$;

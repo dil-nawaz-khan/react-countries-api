@@ -6,7 +6,7 @@ export default function Searchbar({ query, setQuery }) {
         type="text"
         placeholder="Search for a country..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => setQuery(e.target.value.toLocaleLowerCase())}
       />
     </div>
   );
